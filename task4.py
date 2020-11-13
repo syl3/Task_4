@@ -42,7 +42,7 @@ def get_table_download_link(df):
 
 def main():
 	st.title('Beyond Prediction System')
-	st.markdown('Wellcome to the Beyond Prediction System! The system is built by LightGBM and the performance is in the following:  \n  \nAccuracy = 0.9142  \nPrecision = 0.9052  \nRecall = 0.7061')
+	st.markdown('Welcome to the Beyond Prediction System! Our system can help you to **find out the concealing Article A buyer** then you can **take actions to trigger them** or **manage your inventory smartly**. Our core model is built by **the state of the art tree-based algorithm** and we use the **ensemble method** to ensure the stability/robustness of the model. Finally, The performance of the model is in the following for your reference:  \n  \nAccuracy = 0.9142  \nPrecision = 0.9052  \nRecall = 0.7061')
 	st.markdown('Example dataset')
 	st.dataframe(datasetA)
 
