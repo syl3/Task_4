@@ -6,8 +6,6 @@ import os
 import io
 import base64
 
-#df=pd.read_csv('Character.csv')
-#df=df.loc[df.power==3]
 model_1 =lgb.Booster(model_file= 'model_10_0.txt')
 model_2 =lgb.Booster(model_file= 'model_10_1.txt')
 model_3 =lgb.Booster(model_file= 'model_10_2.txt')
@@ -28,15 +26,6 @@ def make_prediction(dataframe):
 	return prediction_
 		
 
-def get_table_download_link(df):
-    """Generates a link allowing the data in a given panda dataframe to be downloaded
-    in:  dataframe
-    out: href string
-    """
-    csv = df.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings <-> bytes conversions necessary here
-    href = f'<a href="data:file/csv;base64,{b64}">Download csv file</a>'
-
 
 def get_table_download_link(df):
     """Generates a link allowing the data in a given panda dataframe to be downloaded
@@ -52,12 +41,9 @@ def get_table_download_link(df):
 
 
 def main():
-	st.title('Article A Recommendation System')
-	st.markdown('Wellcome to the Article A Recommendation System! The system is built by LightGBM and the performance is in the following:  \n  \nAccuracy = 0.9142  \nPrecision = 0.9052  \nRecall = 0.7061')
+	st.title('Beyond Prediction System')
+	st.markdown('Wellcome to the Beyond Prediction System! The system is built by LightGBM and the performance is in the following:  \n  \nAccuracy = 0.9142  \nPrecision = 0.9052  \nRecall = 0.7061')
 	st.markdown('Example dataset')
-	#st.markdown('Accuracy = 0.9142, Precision = 0.9052, Recall = 0.7061')
-	
-	#st.subheader("Example Dataset")
 	st.dataframe(datasetA)
 
 	uploaded_file = st.file_uploader("Choose a CSV file")
@@ -67,7 +53,6 @@ def main():
 
 		st.markdown('This is your uploaded file.')
 		st.write(dataframe)
-		#dataframe.rename(columns={'ID':'id'},inplace=True)
 		
 		st.markdown('**Congratulation!** This is the result.')
 		prediction=make_prediction(dataframe)
